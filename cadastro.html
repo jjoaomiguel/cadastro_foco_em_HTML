@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Usuário</title>
+
+<body>
+
+    <div class="container">
+
+        <h2>Cadastro de Usuário</h2>
+
+        <form id="formCadastro">
+
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" required minlength="3" />
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required />
+
+            <label for="idade">Idade</label>
+            <input type="number" id="idade" placeholder="Digite sua idade" required min="0" max="120" />
+
+            <button type="submit">Cadastrar</button>
+
+        </form>
+
+        <div id="resultado" class="resultado"></div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById("formCadastro");
+        const resultado = document.getElementById("resultado");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const idade = document.getElementById("idade").value;
+
+            resultado.innerHTML = `
+                <strong>Dados cadastrados:</strong><br><br>
+                Nome: ${nome}<br>
+                E-mail: ${email}<br>
+                Idade: ${idade}
+            `;
+        });
+    </script>
+
+</body>
+</head>
+
+</html>
+
+<style>
+    body {
+        font-family: Arial;
+        margin: 20px;
+        background-color: #f2f2f2;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    #formCadastro {
+        background-color: white;
+        padding: 15px;
+        width: 300px;
+        margin: 20px auto;
+        border: 2px solid #ccc;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 10px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #resultado {
+        width: 300px;
+        margin: 20px auto;
+        padding: 15px;
+        background-color: #dff0d8;
+        border: 2px solid #b2d8b2;
+    }
+</style>
